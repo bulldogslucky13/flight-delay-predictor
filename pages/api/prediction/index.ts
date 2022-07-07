@@ -45,7 +45,7 @@ export const requestBodySchema = z.object({
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const results: TrainingFlightData[] = [];
   const failedResults: string[] = [];
-  const limit = 50000;
+  const limit = 10000;
 
   const parsedBody = requestBodySchema.safeParse(req.body);
 
@@ -117,7 +117,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       return res.status(200).json({ results });
     })
     .on("close", function () {
-      const knn = new KNN(35, results); // Our value for K is Math.floor(sqrt(50000)/2) = 35
+      const knn = new KNN(49, results); // Our value for K is Math.floor(sqrt(10000)/2) = 50 - 1 (want it prime)
       const result = knn.predict(bodyFlightData);
 
       console.log(result);
