@@ -14,10 +14,12 @@ This is a Next.JS application that predict whether or not a flight will be delay
 npm install
 ```
 
-4. After this completes, run
+4. Download the `flights.csv` file from [kaggle](https://www.kaggle.com/datasets/usdot/flight-delays?select=flights.csv)
+5. Drop this in `/server/data` and replace the file path in `/pages/api/prediction/create-prediction`'s `createReadStream` variable with the correct one for your machine
+6. Run
 
 ```
 npm run dev
 ```
 
-5. In your browser, navigate to [localhost:3000](http://localhost:3000) and begin using the app!
+7. In your browser, navigate to [localhost:3000](http://localhost:3000) and begin using the app!
